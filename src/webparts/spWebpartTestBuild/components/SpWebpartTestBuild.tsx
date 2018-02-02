@@ -3,22 +3,27 @@ import styles from './SpWebpartTestBuild.module.scss';
 import { ISpWebpartTestBuildProps } from './ISpWebpartTestBuildProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import reducers from '../reducers';
+
+import Header from './common/GreetingLabel'
+
 export default class SpWebpartTestBuild extends React.Component<ISpWebpartTestBuildProps, {}> {
   public render(): React.ReactElement<ISpWebpartTestBuildProps> {
+
+		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
     return (
       <div className={ styles.spWebpartTestBuild }>
         <div className={ styles.container }>
-          <div className={ styles.row }>
-            <div className={ styles.column }>
-              <span className={ styles.title }>Welcome to SharePoint!</span>
-              <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
+          <Provider store={store}>
+						<div>
+							<Header title="Welcome to Allain's Webpart!" />
+						</div>
+					</Provider>
+				</div>
       </div>
     );
   }
