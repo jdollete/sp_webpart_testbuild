@@ -21,7 +21,6 @@ export default class SpWebpartTestBuild extends React.Component<ISpWebpartTestBu
         <div className={ styles.container }>
           <Provider store={store}>
 						<div>
-							<Header title="Welcome to Allain's Webpart!" />
 							<GifContainer />
 						</div>
 					</Provider>
