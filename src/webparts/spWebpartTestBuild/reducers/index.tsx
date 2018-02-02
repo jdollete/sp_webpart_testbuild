@@ -4,6 +4,6 @@ import GifReducer from './GifReducer';
 
 export default combineReducers({
 
-	gifObjects: GifReducer
+	gifObject: GifReducer
 
 }); 
