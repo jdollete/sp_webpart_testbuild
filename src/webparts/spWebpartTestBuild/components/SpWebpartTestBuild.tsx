@@ -9,6 +9,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from '../reducers';
 
 import Header from './common/GreetingLabel'
+import GifContainer from './GifContainer'
 
 export default class SpWebpartTestBuild extends React.Component<ISpWebpartTestBuildProps, {}> {
   public render(): React.ReactElement<ISpWebpartTestBuildProps> {
@@ -21,6 +22,7 @@ export default class SpWebpartTestBuild extends React.Component<ISpWebpartTestBu
           <Provider store={store}>
 						<div>
 							<Header title="Welcome to Allain's Webpart!" />
+							<GifContainer />
 						</div>
 					</Provider>
 				</div>
