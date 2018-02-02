@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import GifItem from './GifItem';
+import styles from './SpWebpartTestBuild.module.scss';
 
 import {
 	fetchGifs
@@ -25,7 +26,7 @@ class GifContainer extends React.Component<any,{}> {
 				return (
 					<GifItem
 						key={element.id}
-						gifUrl={element.images.fixed_height.url}
+						gifUrl={element.images.fixed_width_small.url}
 						gifOrigLink={element.url}
 					/>
 				)
@@ -37,7 +38,7 @@ class GifContainer extends React.Component<any,{}> {
 	render() {
 
 		return (
-			<div className="gif-image-display">
+			<div className={styles.gifImageDisplay}>
 				{this.renderRow(this.props.gifObject)}
 			</div>
 		);
